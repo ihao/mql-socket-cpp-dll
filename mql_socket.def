@@ -1,0 +1,5 @@
+LIBRARY ExpertSample
+
+EXPORTS socket_connect
+	socket_disconnect
+	socket_send_receive

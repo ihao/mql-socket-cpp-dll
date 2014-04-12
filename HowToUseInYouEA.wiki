@@ -1,0 +1,14 @@
+#summary How to use in you EA
+
+= Build =
+
+Build using Visual Studio 8. Remember to change the dll location to the experts;library folder for you Metatrader 4 folder.
+
+
+= Compile the *.mq4 =
+
+The file added SAMPLE.mq4 is a test EA.
+The EA send the data and receive in procedural way, you need to send back data to EA after you received data, for simple teste send backup "0\n" each time the EA send data for you C++ application.
+
+= How to get the sample MQL files =
+If you cant download the .mql file, browser the source code via web to get the sample files.

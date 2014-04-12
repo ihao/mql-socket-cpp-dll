@@ -1,0 +1,5 @@
+wendelmaques@gmail.com
+
+Open and compile in Visual Studio C++ 8.
+
+Put the DLL in in Meta Trader 4 (folder ) in library.
