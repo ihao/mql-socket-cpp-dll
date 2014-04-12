@@ -1,0 +1,110 @@
+
+active trades demo - wendel: 133047 tpt5lpc bmgn6rr
+Money Managements and Risk controller techniques.
+
+The Money Management is how to handle the money you put in one or more trades, where you put more money in the good trades and put less money in the bad trades. And at the same time how to handle the capital you using in your trading account where you spend more when you have more balance and spend less when you have less balance.
+
+bool __buy_prot1_open = false , __buy_prot2_open = false , __buy_prot3_open = false;
+datetime __buy_prot1_status = 0 , __buy_prot2_status = 0 , __buy_prot3_status = 0;
+string __buy_prot1_value = "LB1" , __buy_prot2_value = "LB2" , __buy_prot3_value = "LB3";
+
+
+OP_BUY
+Ask
+Ask-StopLoss
+Ask+TakeProfit
+
+You Buy at the current Ask price of the currency!
+You set the StopLoss Below (-) the Ask price!
+You set the TakeProfit Above (+) the Ask price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_BUY,Lots,Ask,slippage,
+Ask-StopLoss*Point,Ask+TakeProfit*Point,"comment",_SYS_ID,0,Green);
+
+ 
+
+OP_SELL
+Bid
+Bid+StopLoss
+Bid-TakeProfit
+
+You Sell at the current Bid price of the currency!
+You set the StopLoss Above (+) the Bid price!
+You set the TakeProfit Below (-) the Bid price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_SELL,Lots,Bid,slippage,
+Bid+StopLoss*Point,Bid-TakeProfit*Point, "comment",_SYS_ID,0,Green);
+
+ 
+
+OP_BUYLIMIT
+Ask-Level
+Ask-Level-StopLoss
+Ask-Level +TakeProfit
+
+You Buy at future price level Below the current Ask price of the currency!
+You set the StopLoss Below (-) the Ask - the level price!
+You set the TakeProfit Above (+) the Ask - the level price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_BUYLIMIT,Lots,Ask-Level*Point,slippage,
+(Ask-Level*Point)-StopLoss*Point,
+( Ask-Level*Point)+TakeProfit*Point,"comment",_SYS_ID,0,Green);
+
+ 
+
+OP_BUYSTOP
+ 
+Ask+Level
+Ask+Level -StopLoss
+Ask+Level +TakeProfit
+
+You Buy at future price level Above the current Ask price of the currency!
+You set the StopLoss Below (-) the Ask + the level price!
+You set the TakeProfit Above (+) the Ask + the level price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_BUYSTOP,Lots,Ask+Level*Point,slippage,
+(Ask+Level*Point)-StopLoss*Point,
+( Ask+Level*Point)+TakeProfit*Point,"comment",_SYS_ID,0,Green);
+
+ 
+
+OP_SELLLIMIT
+ 
+Bid+Level
+Bid +Level +StopLoss
+Bid+Level –TakeProfit
+
+You Sell at future price level Above the current Bid price of the currency!
+You set the StopLoss Above (+) the Bid + the level price!
+You set the TakeProfit Below (-) the Bid + the level price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_SELLLIMIT,Lots,Bid+Level*Point,slippage,
+(Bid+Level*Point)+StopLoss*Point,
+(Bid +Level*Point)-TakeProfit*Point,"comment",_SYS_ID,0,Green);
+
+ 
+
+OP_SELLSTOP
+Bid-Level
+Bid -Level +StopLoss
+Bid-Level-TakeProfit
+
+You Sell at future price level Below the current Bid price of the currency!
+You set the StopLoss Above (+) the Bid + the level price!
+You set the TakeProfit Below (-) the Bid - the level price!
+
+Example:
+
+status = OrderSend(Symbol(),OP_SELLSTOP,Lots,Bid-Level*Point,slippage,
+(Bid-Level*Point)+StopLoss*Point,
+(Bid -Level*Point)-TakeProfit*Point,"comment",_SYS_ID,0,Green);
